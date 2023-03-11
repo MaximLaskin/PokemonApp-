@@ -7,30 +7,29 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PokemomListViewController: UIViewController {
 
     let foo = ["one", "two", "three", "four", "five"]
 
     var tableView = UITableView()
 
+    struct Cells {
+        static let pokemonCell = "PokemonCell"
+    }
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tableView = UITableView(frame: self.view.bounds, style: .plain)
-//        tableView.backgroundColor = UIColor.white
-//
-//        #warning("TODO - посмотреть что будет, если сделать true")
-//        tableView.showsVerticalScrollIndicator = false
-//        tableView.delegate = self
-//        tableView.dataSource = self
-//
-//        self.view.addSubview(tableView)
+        title = "Pokemons"
+        configureTableView()
 
     }
     private func configureTableView() {
         view.addSubview(tableView)
         setTableViewDelegates()
         tableView.rowHeight = 100
-        
+        tableView.register(PokemonTableViewCell.self, forCellReuseIdentifier: Cells.pokemonCell)
+        tableView.pin(to: view)
 
     }
     private func setTableViewDelegates() {
@@ -41,12 +40,16 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension PokemomListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         foo.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.pokemonCell) as? PokemonTableViewCell else { return UITableViewCell }
+
+
+
+
 
 
         return cell
