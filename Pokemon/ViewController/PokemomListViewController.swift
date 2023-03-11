@@ -47,7 +47,7 @@ class PokemomListViewController: UIViewController {
                 self?.pokemons = pokemons
                 self?.tableView.reloadData()
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
             }
         }
     }

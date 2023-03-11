@@ -34,9 +34,9 @@ class NetworkManager {
                 return
             }
             do {
-                let superheroes = try JSONDecoder().decode([Pokemon].self, from: data)
+                let pokemons = try JSONDecoder().decode(PokemonApp.self, from: data)
                 DispatchQueue.main.async {
-                    completion(.success(superheroes.shuffled()))
+                    completion(.success(pokemons.results))
                 }
             } catch {
                 completion(.failure(.decodingError))
