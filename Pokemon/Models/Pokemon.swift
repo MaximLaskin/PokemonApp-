@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct PokemonApp: Codable {
+let results: [Pokemon]
+}
+
+struct Pokemon: Codable {
+    let name: String
+   
+}

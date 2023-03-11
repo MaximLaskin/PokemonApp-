@@ -14,11 +14,11 @@ class PokemonTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubview(heroImage)
+//        addSubview(heroImage)
         addSubview(nameLabel)
-        configureImageView()
+//        configureImageView()
         configureNameLabel()
-        setImageConstraints()
+//        setImageConstraints()
         setNameLabelConstraints()
     }
     
@@ -27,7 +27,7 @@ class PokemonTableViewCell: UITableViewCell {
     }
 
     func configure(with pokemon: Pokemon) {
-        
+        nameLabel.text = pokemon.name
     }
 
     func configureImageView() {
@@ -56,7 +56,7 @@ class PokemonTableViewCell: UITableViewCell {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            nameLabel.leadingAnchor.constraint(equalTo: heroImage.trailingAnchor, constant: 20),
+            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20), // heroImage.trailingAnchor
             nameLabel.heightAnchor.constraint(equalToConstant: 80),
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12) // отступ -12
 

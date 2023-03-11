@@ -10,6 +10,7 @@ import UIKit
 class PokemomListViewController: UIViewController {
 
     let foo = ["one", "two", "three", "four", "five"]
+    var pokemons: [Pokemon] = []
 
     var tableView = UITableView()
 
@@ -21,7 +22,9 @@ class PokemomListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Pokemons"
+        fetchPokemons()
         configureTableView()
+
 
     }
     private func configureTableView() {
@@ -37,23 +40,29 @@ class PokemomListViewController: UIViewController {
         tableView.delegate = self
     }
 
+    private func fetchPokemons() {
+        NetworkManager.shared.fetchData { [weak self ]result in
+            switch result {
+            case .success(let pokemons):
+                self?.pokemons = pokemons
+                self?.tableView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+
 
 }
 
 extension PokemomListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        foo.count
+        pokemons.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.pokemonCell) as? PokemonTableViewCell else { return UITableViewCell }
-
-
-
-
-
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.pokemonCell, for: indexPath) as? PokemonTableViewCell else { return UITableViewCell() }
+        let pokemon = pokemons[indexPath.row]
+        cell.configure(with: pokemon)
         return cell
     }
-
-
 }
