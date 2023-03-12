@@ -51,8 +51,6 @@ class PokemomListViewController: UIViewController {
             }
         }
     }
-
-
 }
 
 extension PokemomListViewController: UITableViewDelegate, UITableViewDataSource {

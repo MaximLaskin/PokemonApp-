@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43C712C029BDD4DE0052083F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 43C712BF29BDD4DE0052083F /* Alamofire */; };
+		43C712C229BDDB4C0052083F /* SuperHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C712C129BDDB4C0052083F /* SuperHero.swift */; };
 		43C9534C29BBC2BC00F0EEEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C9534B29BBC2BC00F0EEEB /* AppDelegate.swift */; };
 		43C9535029BBC2BC00F0EEEB /* PokemomListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C9534F29BBC2BC00F0EEEB /* PokemomListViewController.swift */; };
 		43C9535529BBC2BE00F0EEEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43C9535429BBC2BE00F0EEEB /* Assets.xcassets */; };
@@ -18,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		43C712C129BDDB4C0052083F /* SuperHero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHero.swift; sourceTree = "<group>"; };
 		43C9534829BBC2BC00F0EEEB /* Pokemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C9534B29BBC2BC00F0EEEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43C9534F29BBC2BC00F0EEEB /* PokemomListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemomListViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43C712C029BDD4DE0052083F /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				43F9F45529BD1EB7004A8010 /* Pokemon.swift */,
+				43C712C129BDDB4C0052083F /* SuperHero.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -137,6 +142,9 @@
 			dependencies = (
 			);
 			name = Pokemon;
+			packageProductDependencies = (
+				43C712BF29BDD4DE0052083F /* Alamofire */,
+			);
 			productName = Pokemon;
 			productReference = 43C9534829BBC2BC00F0EEEB /* Pokemon.app */;
 			productType = "com.apple.product-type.application";
@@ -165,6 +173,9 @@
 				Base,
 			);
 			mainGroup = 43C9533F29BBC2BC00F0EEEB;
+			packageReferences = (
+				43C712BE29BDD4DE0052083F /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 43C9534929BBC2BC00F0EEEB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -191,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43C712C229BDDB4C0052083F /* SuperHero.swift in Sources */,
 				43F9F45929BD1F4C004A8010 /* NetworkManager.swift in Sources */,
 				43F9F45629BD1EB7004A8010 /* Pokemon.swift in Sources */,
 				43C9536329BBCC5800F0EEEB /* UIView+Extension.swift in Sources */,
@@ -406,6 +418,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		43C712BE29BDD4DE0052083F /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		43C712BF29BDD4DE0052083F /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 43C712BE29BDD4DE0052083F /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 43C9534029BBC2BC00F0EEEB /* Project object */;
 }
